@@ -1,3 +1,7 @@
+getwd()
+setwd("D:/R/3rdATTEMPT/LAB_01")
+
+```{r}
 #LAB 01
 
 #Task 1 Creating base (atomic) type variables
@@ -47,9 +51,9 @@ m<-factor(c("baby", "child", "adult"))
 
 
 #Task 6
-n<-c(1,2,3,4,NA,6,7,NA,9,NA,11)  #I can not find the index of first "NA"
+n<-c(1,2,3,4,NA,6,7,NA,9,NA,11)
 match(c(NA),n) # match function only returns index of the first encounter
-which(n %in% c(NA)) # %in% 
+which(n %in% c(NA)) # %in% returns indices of the all elements listed under c()
 
 
 #Task 7
@@ -59,7 +63,11 @@ popData<-read.csv("D:/R/3rdATTEMPT/LAB_01/data.csv")
 # This will print the dataframe in console
 popData
 
+
+#Task 8
 # Replacing the name of fisrt column "city" by "town"
 names(popData)[1]<-"town"
 # Replacing the strange names assigned by read.csv by integer numbers
 names(popData)[5:105]<-as.integer(0:100)
+
+```

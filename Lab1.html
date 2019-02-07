@@ -186,7 +186,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Lab1</h1>
 <h4 class="author"><em>Shevchook</em></h4>
-<h4 class="date"><em>6 лютого 2019 р</em></h4>
+<h4 class="date"><em>7 лютого 2019 р</em></h4>
 
 </div>
 
@@ -241,10 +241,10 @@ m&lt;-factor(c(&quot;baby&quot;, &quot;child&quot;, &quot;adult&quot;))
 
 
 #Task 6
-n&lt;-c(1,2,3,4,NA,6,7,NA,9,NA,11)  #I can not find the index of first &quot;NA&quot;
+n&lt;-c(1,2,3,4,NA,6,7,NA,9,NA,11)
 match(c(NA),n) # match function only returns index of the first encounter</code></pre>
 <pre><code>## [1] 5</code></pre>
-<pre class="r"><code>which(n %in% c(NA)) # %in% </code></pre>
+<pre class="r"><code>which(n %in% c(NA)) # %in% returns indices of the all elements listed under c()</code></pre>
 <pre><code>## [1]  5  8 10</code></pre>
 <pre class="r"><code>#Task 7
 #Creating the dataframe from *.csv
@@ -308,7 +308,8 @@ popData</code></pre>
 ## 4 322 148  72  87  18  41  44  172
 ## 5 307 277  99  55  76   0  13  192
 ## 6 187 239 233  39  36  70   0  190</code></pre>
-<pre class="r"><code># Replacing the name of fisrt column &quot;city&quot; by &quot;town&quot;
+<pre class="r"><code>#Task 8
+# Replacing the name of fisrt column &quot;city&quot; by &quot;town&quot;
 names(popData)[1]&lt;-&quot;town&quot;
 # Replacing the strange names assigned by read.csv by integer numbers
 names(popData)[5:105]&lt;-as.integer(0:100)</code></pre>
