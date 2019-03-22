@@ -48,13 +48,14 @@ my_ifelse <- function(x, exp, n) {
 ```{r}
 #TASK 4. To create the function to calculate mean by matrix columns.
 # Creating the matrix
-df<-matrix(c(1, 2, 3, 4, 5, NA), 2, 3)
+x<-matrix(c(1, 2, 3, 4, 5, NA), 2, 3)
 
-columnmean <- function(df, removeNA=TRUE) {
-  for (i in 1:Ncol)
-    res<-numeric(0)
-    res<-(res, meancol)
+columnmean <- function(x, removeNA=TRUE) {
+  n <- ncol(x)
+  v <- numeric(n)
+  for (i in 1:ncol(x)){
+    v[i] <- mean(x[,i], na.rm = removeNA)
+  }
+   v
 }
-
-colMeans(df,na.rm = TRUE)
 ```
