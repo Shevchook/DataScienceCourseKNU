@@ -12,7 +12,8 @@ y<-1.61803398874989
 
 # Using of created function
 add2(x,y)
-# Console [1] 4.336316
+# Console
+[1] 4.336316
 ```  
 
 ```{r}
@@ -29,7 +30,8 @@ above(x)
 # Console [1] 13 21 34
 # Function "above" returns elements from vector "x" which are bigger than specified value
 above(x, 2)
-# Console [1]  3  5  8 13 21 34
+# Console
+[1]  3  5  8 13 21 34
 ```
 
 ```{r}
