@@ -64,6 +64,10 @@ names(airquality)
 
 > nrow(subset(airquality, is.na(Ozone)))
 [1] 37
+
+# The second method
+> sum(is.na(airquality$Ozone))
+[1] 37
 ```
 
 ```{r}
