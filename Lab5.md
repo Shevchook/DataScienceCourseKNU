@@ -88,13 +88,34 @@ complete("specdata", 50:60)
 # порогового значення, функція повинна повернути numeric вектор довжиною 0.
 
 corr <- function(directory, threshold = 0) {
-    all <- complete(directory)
-    if (sum(which(all$nobs>threshold))==0) {NULL}
-    else {thresh_index <- as.numeric(all[which(all$nobs>threshold),]$id)}
-    names <- list.files(directory)[thresh_index]
-    read <- lapply(paste(directory,"/",names, sep = ""),read.csv)
-    return(unlist(lapply(read, function(x){
-        cor(x[,2],x[,3],use="pairwise.complete.obs")})))
+    path <- paste0(getwd(),"/", directory) # створення адреси де шукати
+    corr_vect <- NULL #  створення порожнього вектора
+    for (i in 1:332)  #  цикл, який дописує нулі до імен файлів, читає їх і записує в "dat"
+        {
+        if (i < 10) {
+            dat <- read.csv(paste(path,"/00", as.character(i),".csv", sep = ""), 
+                            as.is = T, 
+                            header = T)
+        }
+        else if (i < 100) {
+            dat <- read.csv(paste(path,"/0", as.character(i),".csv", sep = ""), 
+                            as.is = T, 
+                            header = T)
+        }
+        else {
+            dat <- read.csv(paste(path,"/", as.character(i),".csv", sep = ""), 
+                            as.is = T, 
+                            header = T)
+        }
+        
+        data <- dat[complete.cases(dat),] # відбирає лише повні спостереження і записує в "data"
+        if (nrow(data) > threshold) {
+            corr_vect <- c(corr_vect, cor(data[,"sulfate"], data[, "nitrate"]))
+            # рахує кореляцію і заповнює порожній вектор, створений вище
+            }
+    }
+    
+    return(corr_vect) # видає результат розрахунку
 }
 
 # Використання функції corr
@@ -112,6 +133,8 @@ head(cr); summary(cr)
 
 cr <- corr("specdata", 5000)
 head(cr); summary(cr) ; length(cr)
-# Error in corr("specdata", 5000) : object 'thresh_index' not found
-# Something went wrong :-(
+# NULL
+# Length  Class   Mode
+# 0   NULL   NULL
+# [1] 0
 ```
