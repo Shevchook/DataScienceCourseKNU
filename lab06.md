@@ -90,6 +90,8 @@ apply(mat<0, 2, sum)
 # TRUE, якщо в стовпці є елементи >2, FALSE – якщо немає
 apply(mat, 2, function(x) sum(x>2)>0)
 # [1] FALSE FALSE FALSE FALSE FALSE
+# 2-nd variant
+apply(mat, 2, function(x) length(x[x>2])>0)
 ```
 
 ```{r}
