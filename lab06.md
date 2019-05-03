@@ -84,7 +84,7 @@ apply(mat<0, 2, sum)
 # TASK 7
 # Вивести вектор з булевими значеннями TRUE та FALSE.
 # TRUE, якщо в стовпці є елементи >2, FALSE – якщо немає
-apply(mat>2, 2, sum)>0
+apply(mat, 2, sum)>2
 # [1] FALSE FALSE FALSE FALSE FALSE
 ```
 
